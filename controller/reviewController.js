@@ -1,8 +1,6 @@
 const { cloudinary } = require("../config/cloudinary");
 const Review = require("../model/review");
 
-
-
 // POST /api/reviews - Create a new review
 const createReview = async (req, res) => {
   try {
@@ -11,7 +9,8 @@ const createReview = async (req, res) => {
     if (!productId || !userId || !userName || !rating || !reviewText) {
       return res.status(400).json({ message: "All fields are required." });
     }
-    // Cloudinary file comes from req.file 
+    
+    // Cloudinary file comes from req.file
     const productReviewImg = {
       image: req.file?.path || "",
       public_id: req.file?.filename || "",
@@ -48,7 +47,6 @@ const getReviewsByProduct = async (req, res) => {
   }
 };
 
-
 // DELETE /api/reviews/:id
 const deleteReview = async (req, res) => {
   try {
@@ -78,5 +76,5 @@ const deleteReview = async (req, res) => {
 module.exports = {
   createReview,
   getReviewsByProduct,
-  deleteReview,  
+  deleteReview,
 };
