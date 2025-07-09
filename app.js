@@ -8,8 +8,8 @@ const corsOptions = require("./config/cors");
 const reviewRoute = require("./route/reviewRoute");
 
 // global middlewares
-app.use(cors("*"))
-// app.use(cors(corsOptions)); //  
+// app.use(cors())
+app.use(cors(corsOptions)); //  
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
